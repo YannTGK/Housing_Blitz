@@ -35,7 +35,8 @@ if (!empty($_POST)){
 
             session_start(); // Start session
             $_SESSION['loggedin'] = true;
-            header("Location: index.php");
+            header("Location: index.php"); // Redirect to another page after successful submission
+            exit; // Make sure to exit after redirection
         }
     }
 }
@@ -47,20 +48,20 @@ if (!empty($_POST)){
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="netflixLogin">
+    <div class="signup">
         <div class="form form--login">
             <form action="" method="post">
                 <h2 form__title>Sign Up</h2>
                 <div class="form__field">
-                    <label for="Username">Username</label>
+                    <label for="Username">Gebruikersnaam</label>
                     <input type="text" name="Username">
                 </div>
                 <div class="form__field">
-                    <label for="Password">Password</label>
+                    <label for="Password">Wachtwoord</label>
                     <input type="password" name="Password">
                 </div>
                 <div class="form__field">
-                    <label for="ConfirmPassword">Confirm Password</label> <!-- New field for password confirmation -->
+                    <label for="ConfirmPassword">Herhaal wachtwoord</label> <!-- New field for password confirmation -->
                     <input type="password" name="confirm_password">
                 </div>
 
@@ -76,5 +77,9 @@ if (!empty($_POST)){
             </form>
         </div>
     </div>
+	<div class="back">
+		<p>Heb je al een account?</p>
+		<a href="login.php">login</a>
+	</div>
 </body>
 </html>

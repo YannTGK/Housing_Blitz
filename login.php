@@ -77,5 +77,10 @@
             </form>
         </div>
     </div>
+
+    <div class="signup">
+        <p>nog geen account? maak hier je account</p>
+        <a href="signup.php">signup</a>
+    </div>
 </body>
 </html>

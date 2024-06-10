@@ -1,25 +1,26 @@
 <?php
+
+// Include the configuration file
+include_once(__DIR__ . "/../settings/settings.php");
+
 class Db {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $password = 'root';
-    private $dbname = 'LAB';
-    private $conn;
+    private static $conn;
 
-    public function __construct() {
-        $dsn = "mysql:host={$this->host};dbname={$this->dbname}";
-        $options = array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        );
-        try {
-            $this->conn = new PDO($dsn, $this->user, $this->password, $options);
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+    public static function getConnection() {
+        // Get database settings from SETTINGS constant
+        $host = SETTINGS['db']['host'];
+        $user = SETTINGS['db']['user'];
+        $password = SETTINGS['db']['password'];
+        $dbname = SETTINGS['db']['database'];
+
+        if (self::$conn === null) {
+            self::$conn = new mysqli($host, $user, $password, $dbname);
+            /*if (self::$conn->connect_error) {
+                die("Connection failed: " . self::$conn->connect_error);
+            }*/
+            return self::$conn;
         }
-    }
-
-    public function getConnection() {
-        return $this->conn;
+            return self::$conn;
     }
 }
 ?>

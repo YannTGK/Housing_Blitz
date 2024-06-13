@@ -24,10 +24,59 @@ if(isset($_GET['logout'])) {
   <title>Littlesun</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <h1>Hello 
+        <?php if(isset($_SESSION['firstname'])){
+            $role = $_SESSION['firstname'];
+            echo $role;
+            } else {
+            echo "firstname niet gevonden in sessie.";
+            } 
+        ?>
+        <?php if(isset($_SESSION['lastname'])){
+            $role = $_SESSION['lastname'];
+            echo $role;
+            } else {
+            echo "lastname niet gevonden in sessie.";
+            } 
+        ?>
+    </h1>
     <p>Welcome to your dashboard!</p>
-    
-    <!-- Logout link -->
+    <p>
+        <?php if(isset($_SESSION['role'])){
+            $role = $_SESSION['role'];
+            echo $role;
+            } else {
+            echo "Rol niet gevonden in sessie.";
+            } 
+        ?>
+    </p>
+    <p>
+        <?php if(isset($_SESSION['username'])){
+            $role = $_SESSION['username'];
+            echo $role;
+            } else {
+            echo "username niet gevonden in sessie.";
+            } 
+        ?>
+    </p>
+    <p>
+        <?php if(isset($_SESSION['birthday'])){
+            $role = $_SESSION['birthday'];
+            echo $role;
+            } else {
+            echo "birthday niet gevonden in sessie.";
+            } 
+        ?>
+    </p>
+    <p>
+        <?php if(isset($_SESSION['id'])){
+            $role = $_SESSION['id'];
+            echo $role;
+            } else {
+            echo "id niet gevonden in sessie.";
+            } 
+        ?>
+    </p>
     <a href="?logout">Logout</a>
 </body>
 </html>

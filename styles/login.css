@@ -1,0 +1,121 @@
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+}
+
+.display {
+    background-color: #D8FFD3;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.loginHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.loginHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.introLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form input {
+    width: 420px;
+    height: 60px;
+    border-radius: 5px;
+    border-color: #D1D1D1;
+    
+}
+
+.buttonHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn {
+    width: 100%;
+}
+
+.btn .formButton {
+    width: 100%;
+    height: 60px;
+}
+
+.signupinfo {
+    display: flex;
+    gap: 8px;
+}
+
+/*signup code*/
+
+.login2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.loginHolder2 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 618px;
+}
+
+.form2holder {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form2items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.form2items .form2 {
+    width: 300px;
+}
+
+.form2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.form2 input {
+    height: 60px;
+    width: 300px;
+}

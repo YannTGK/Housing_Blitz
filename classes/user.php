@@ -15,9 +15,5 @@ class User {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         return $user;
     }
-
-    public function logout() {
-        // Logout logic
-    }
 }
 ?>

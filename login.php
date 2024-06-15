@@ -7,7 +7,8 @@ include_once(__DIR__."/classes/database.php");
 function canLogin($Pusername, $Ppassword){
     $conn = Db::getConnection();
     $Pusername = $conn->real_escape_string($Pusername);
-    $sql = "SELECT password, username, role, firstname, lastname, id, birthday FROM users WHERE username = '$Pusername'";
+    $sql = "SELECT password, username, role, firstname, lastname, id, birthday 
+        FROM users WHERE username = '$Pusername'";
     $result = $conn->query($sql);
 
     if ($result === false) {

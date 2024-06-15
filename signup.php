@@ -38,12 +38,12 @@ if (!empty($_POST)){
                 $user_id = $conn->insert_id; // Get the last inserted ID
 
                 // Add dummy data for user_chance_percentages
-                $dummy_sociale_woning = rand(0, 100);
+                $dummy_sociale_woning = rand(0, 400);
                 $dummy_premies_subsidies = rand(0, 100);
                 $dummy_particulieren_huurmarkt = rand(0, 100);
                 $dummy_sociaal_verhuurkantoor = rand(0, 100);
 
-                $query = "INSERT INTO user_chance_percentages (user_id, sociale_woning, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor) VALUES ('$user_id', '$dummy_sociale_woning', '$dummy_premies_subsidies', '$dummy_particulieren_huurmarkt', '$dummy_sociaal_verhuurkantoor')";
+                $query = "INSERT INTO user_chance_percentages (user_id, sociale_woning_positie, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor) VALUES ('$user_id', '$dummy_sociale_woning', '$dummy_premies_subsidies', '$dummy_particulieren_huurmarkt', '$dummy_sociaal_verhuurkantoor')";
                 $conn->query($query);
 
                 session_start(); // Start session

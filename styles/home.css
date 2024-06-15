@@ -1,3 +1,170 @@
 .homeActive {
     background-color: #B2FFA8;
 }
+
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.kansHolder {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 600px;
+    height: 350px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.kans {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.chart-container {
+    position: relative;
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    margin: 0 auto 20px;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-small {
+    width: 95px;
+    height: 95px;
+}
+
+.circle-medium {
+    width: 130px;
+    height: 130px;
+}
+
+.circle-large {
+    width: 170px;
+    height: 170px;
+}
+
+.circle-xlarge {
+    width: 225px;
+    height: 225px;
+}
+
+.circle::after {
+    content: '';
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+}
+
+.legend li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    padding: 24px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    justify-content: space-around;
+    font-family: "montserrat", sans-serif;
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.body-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: black;
+}
+  
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #f44336;
+    border-radius: 5px;
+}
+
+.percentage {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 14px;
+}
+
+.addInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
+    height: 350px;
+}
+
+.addInfo > div {
+    height: 163px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    justify-content: space-around;
+}
+
+.city img {
+    width: 122px;
+    height: 41px;
+}
+
+.city p, .profielVoltooid {
+    text-align: center;
+}
+

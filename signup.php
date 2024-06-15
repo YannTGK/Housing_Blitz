@@ -34,18 +34,32 @@ if (!empty($_POST)){
 
             // Send the data to the users table
             $query = "INSERT into users (username, password, role, firstname, lastname, birthday) VALUES('$Username','$Password', 'user','$FirstName','$LastName', '$Birthday')";
-            $result = $conn->query($query);
+            if ($conn->query($query) === TRUE) {
+                $user_id = $conn->insert_id; // Get the last inserted ID
 
-            session_start(); // Start session
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $Username;
-            $_SESSION['firstname'] = $FirstName;
-            $_SESSION['lastname'] = $LastName;
-            $_SESSION['birthday'] = $Birthday;
-            $_SESSION['role'] = 'user';
-            
-            header("Location: index.php"); // Redirect to another page after successful submission
-            exit; // Make sure to exit after redirection
+                // Add dummy data for user_chance_percentages
+                $dummy_sociale_woning = rand(0, 100);
+                $dummy_premies_subsidies = rand(0, 100);
+                $dummy_particulieren_huurmarkt = rand(0, 100);
+                $dummy_sociaal_verhuurkantoor = rand(0, 100);
+
+                $query = "INSERT INTO user_chance_percentages (user_id, sociale_woning, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor) VALUES ('$user_id', '$dummy_sociale_woning', '$dummy_premies_subsidies', '$dummy_particulieren_huurmarkt', '$dummy_sociaal_verhuurkantoor')";
+                $conn->query($query);
+
+                session_start(); // Start session
+                $_SESSION['id'] = $user_id; // Store user ID in session
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $Username;
+                $_SESSION['firstname'] = $FirstName;
+                $_SESSION['lastname'] = $LastName;
+                $_SESSION['birthday'] = $Birthday;
+                $_SESSION['role'] = 'user';
+                
+                header("Location: index.php"); // Redirect to another page after successful submission
+                exit; // Make sure to exit after redirection
+            } else {
+                $error = "Error: " . $conn->error;
+            }
         }
     }
 }

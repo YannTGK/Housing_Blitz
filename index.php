@@ -1,5 +1,4 @@
 <?php 
-
 include_once(__DIR__."/classes/database.php");
 
 session_start();
@@ -17,25 +16,35 @@ if(isset($_GET['logout'])) {
 }
 
 $conn = Db::getConnection();
-// Haal de gebruiker op basis van de sessiegegevens (gebruikersnaam of ID)
-$user_id = $_SESSION['id'];
-$sql = "SELECT sociale_woning, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor FROM user_chance_percentages WHERE user_id = $user_id";
-$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // Gebruiker gevonden, haal kanspercentages op
-    $row = $result->fetch_assoc();
-    $sociale_woning = $row['sociale_woning'];
-    $premies_subsidies = $row['premies_subsidies'];
-    $particulieren_huurmarkt = $row['particulieren_huurmarkt'];
-    $sociaal_verhuurkantoor = $row['sociaal_verhuurkantoor'];
+// Controleer of user_id is ingesteld in de sessie
+if(isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+    $sql = "SELECT sociale_woning, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor FROM user_chance_percentages WHERE user_id = $user_id";
+    $result = $conn->query($sql);
+
+    if ($result === false) {
+        // Fout bij het uitvoeren van de query
+        echo "Error: " . $conn->error;
+    } elseif ($result->num_rows > 0) {
+        // Gebruiker gevonden, haal kanspercentages op
+        $row = $result->fetch_assoc();
+        $sociale_woning = $row['sociale_woning'];
+        $premies_subsidies = $row['premies_subsidies'];
+        $particulieren_huurmarkt = $row['particulieren_huurmarkt'];
+        $sociaal_verhuurkantoor = $row['sociaal_verhuurkantoor'];
+    } else {
+        // Gebruiker niet gevonden
+        echo "Gebruiker niet gevonden in de database.";
+        $sociale_woning = $premies_subsidies = $particulieren_huurmarkt = $sociaal_verhuurkantoor = 0;
+    }
 } else {
-    // Gebruiker niet gevonden (zou normaal gesproken niet moeten gebeuren als de sessie juist is ingesteld)
-    // Je kunt hier een fallback doen of een foutmelding geven
-    echo "Gebruiker niet gevonden in de database.";
+    echo "Gebruiker ID niet gevonden in sessie.";
+    $sociale_woning = $premies_subsidies = $particulieren_huurmarkt = $sociaal_verhuurkantoor = 0;
 }
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -50,15 +59,13 @@ if ($result->num_rows > 0) {
     <div class="screen">
         <h3 class="housingLetter">
             <?php if(isset($_SESSION['firstname'])){
-                $role = $_SESSION['firstname'];
-                echo $role;
+                echo $_SESSION['firstname'];
                 } else {
                 echo "firstname niet gevonden in sessie.";
                 } 
             ?>
             <?php if(isset($_SESSION['lastname'])){
-                $role = $_SESSION['lastname'];
-                echo $role;
+                echo $_SESSION['lastname'];
                 } else {
                 echo "lastname niet gevonden in sessie.";
                 } 

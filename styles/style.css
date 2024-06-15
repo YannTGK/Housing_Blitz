@@ -3,8 +3,8 @@
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     background-color: #F7F8FB;
@@ -19,15 +19,14 @@ header {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 40px;
-    width: 200px; 
+    width: 200px;
 }
 
 .navHolder {
     display: flex;
     flex-direction: column;
-    width: 200px; 
+    width: 200px;
     align-items: center;
-    
 }
 
 .logo {
@@ -52,7 +51,7 @@ header {
 }
 
 .navItems .img {
-    width: 50px ;
+    width: 50px;
     height: 50px;
     background-size: contain;
     background-position: center;
@@ -61,22 +60,18 @@ header {
 
 .navItems .home {
     background-image: url(../images/home_icon.svg);
-    
 }
 
 .navItems .profile {
     background-image: url(../images/profile_icon.svg);
-    
 }
 
 .navItems .contact {
     background-image: url(../images/contact_icon.svg);
-    
 }
 
 .navItems .settings {
     background-image: url(../images/setting_icon.svg);
-    
 }
 
 .navItems p, header .logout {
@@ -91,7 +86,7 @@ header {
 
 .screen {
     width: 100%;
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: 24px;
     margin-left: 232px;
     margin-top: 24px;
@@ -104,9 +99,7 @@ header {
     font-size: 20px;
 }
 
-
-
-h1, h2, h3, p, strong, a, label, input {
+h1, h2, h3, p, strong, a, label, input, ul, i {
     margin: 0;
     font-family: "montserrat", sans-serif;
     color: #211F54;
@@ -125,3 +118,86 @@ h1, h2, h3, p, strong, a, label, input {
 .btn .formButton:hover {
     background-color: #005bb5;
 }
+
+.kansHolder {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 600px;
+}
+
+.kans {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.chart-container {
+    position: relative;
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    margin: 0 auto 20px;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-small {
+    width: 95px;
+    height: 95px;
+}
+
+.circle-medium {
+    width: 130px;
+    height: 130px;
+}
+
+.circle-large {
+    width: 170px;
+    height: 170px;
+}
+
+.circle-xlarge {
+    width: 225px;
+    height: 225px;
+}
+
+.circle::after {
+    content: '';
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+}
+
+.legend li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+

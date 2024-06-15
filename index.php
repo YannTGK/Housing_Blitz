@@ -46,9 +46,69 @@ if(isset($_GET['logout'])) {
         </h3>
 
         <div class="content">
-            
-
+            <div class="kansHolder">
+                <h1>Hoeveel kans maak jij</h1>
+                <div class="kans">
+                    <div class="chart-container">
+                        <?php
+                            $progressValues = [75, 80, 80, 40];
+                            $classes = ['circle-xlarge', 'circle-large', 'circle-medium', 'circle-small'];
+                            foreach ($progressValues as $index => $progress) {
+                                $class = $classes[$index];
+                                echo "<div class='circle $class' data-progress='$progress'></div>";
+                            }
+                        ?>
+                    </div>
+                    <ul class="legend">
+                        <li> 
+                            <strong>
+                                Sociale Woning
+                            </strong>  
+                            <span>
+                                40%
+                            </span>
+                        </li>
+                        <li> 
+                            <strong>
+                                Premies/Subsidies
+                            </strong>
+                            <span>
+                                80%
+                            </span>
+                        </li>
+                        <li> 
+                            <strong>
+                                Particulieren Huurmarkt
+                            </strong>  
+                            <span>
+                                60%
+                            </span>
+                        </li>
+                        <li> 
+                            <strong>
+                                Sociaal Verhuurkantoor
+                            </strong>  
+                            <span>
+                                75%
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const circles = document.querySelectorAll('.circle');
+            const colors = ['#B2FFA8', '#A4AA7D', '#86E7B8', '#93ACA0']; // Define your colors here
+
+            circles.forEach((circle, index) => {
+                const progress = circle.getAttribute('data-progress');
+                const color = colors[index % colors.length]; // Use a color from the array
+                circle.style.background = `conic-gradient(${color} 0% ${progress}%, #d3d3d3 ${progress}% 100%)`;
+            });
+        });
+    </script>
 </body>
+
 </html>

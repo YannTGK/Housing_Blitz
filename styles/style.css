@@ -2,9 +2,114 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    background-color: #F7F8FB;
+}
+
+header {
+    position: fixed;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    width: 200px; 
+}
+
+.navHolder {
+    display: flex;
+    flex-direction: column;
+    width: 200px; 
+    align-items: center;
+    
+}
+
+.logo {
+    width: 100px;
+    height: 50px;
+    background-image: url(../images/logo.svg);
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+.navItems {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 30px 78px;
+}
+
+.navItems .img {
+    width: 50px ;
+    height: 50px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navItems .home {
+    background-image: url(../images/home_icon.svg);
+    
+}
+
+.navItems .profile {
+    background-image: url(../images/profile_icon.svg);
+    
+}
+
+.navItems .contact {
+    background-image: url(../images/contact_icon.svg);
+    
+}
+
+.navItems .settings {
+    background-image: url(../images/setting_icon.svg);
+    
+}
+
+.navItems p, header .logout {
+    color: #211F54;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    width: 44px;
+    text-decoration: none;
+}
+
+.screen {
+    width: 100%;
+    margin-top: 0px;
+    margin-right: 24px;
+    margin-left: 232px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.housingLetter {
+    font-size: 20px;
+}
+
+
+
 h1, h2, h3, p, strong, a, label, input {
     margin: 0;
     font-family: "montserrat", sans-serif;
+    color: #211F54;
 }
 
 .btn .formButton {

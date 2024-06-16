@@ -164,11 +164,57 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                     <div class="profielVoltooid">
                         <p>Voltooi je profiel <a href="#">hier</a> om beter geholpen te worden.</p>
                         <div class="progress-bar">
-                            <div class="progress-bar-fill" style="width: <?php echo $kans_op_sociale_woning; ?>%; background-color: <?php echo $progress_color; ?>;"></div>
-                            <div class="percentage">80%</div>
+                            <div class="progress-bar-fill" style="width: <?php echo 40; ?>%; background-color: <?php echo 40; ?>;"></div>
+                            <div class="percentage"><?php echo 40; ?>%</div>
                         </div>
                     </div>
                 </div>                 
+            </div>
+            <div class="bottom">
+                <div class="faqHolder">
+                    <h3>FAQ - vragen</h3>
+                    <div class="articles">
+                        <article>
+                            <p class="header"> 1. Wat is het verschil tussen een huurpremie en een subsidie? </p>
+                            <p>Een huurpremie is meestal een financiële tegemoetkoming die wordt toegekend aan huurders met een laag inkomen en een hoge huurlast, terwijl een subsidie een bredere term is die verschillende vormen van financiële steun kan omvatten.</p>        	
+                        </article>
+                        <article>
+                            <p class="header"> 2. Hoe wordt de hoogte van een huurpremie of subsidie bepaald? </p>
+                            <p>De hoogte wordt vaak bepaald op basis van verschillende factoren, waaronder het inkomen van de huurder, de huurprijs van de woning en eventuele specifieke behoeften of omstandigheden.</p>        	
+                        </article>
+                        <article>
+                            <p class="header"> 3. Wat moet ik doen als mijn inkomen verandert tijdens de looptijd van de premie of subsidie? </p>
+                            <p> Het is belangrijk om eventuele wijzigingen in je inkomen tijdig door te geven aan de relevante instantie om ervoor te zorgen dat je recht blijft hebben op de premie of subsidie.</p>        	
+                        </article>
+
+                    </div>
+                </div>
+                <div class="news">
+                    <h3>Woon nieuws</h3>
+                    <div class="articlesHolder">
+                        <article>
+                            <img src="images/news1.svg" alt="holder image for news section 1">
+                            <div class="articles2">
+                                <p class="header">Inschrijven voor een sociale huurwoning gebeurt voortaan online</p>
+                                <p>Inschrijven voor een sociale huurwoning gebeurt vanaf 18 maart 2024 online. Vanaf dan is er in Vlaanderen namelijk één digitaal platform voor alle inschrijvingsdossiers... <a href="#">Lees meer</a></p>
+                            </div> 
+                        </article>
+                        <article>
+                            <img src="images/news2.svg" alt="holder image for news section 1">
+                            <div class="articles2">
+                                <p class="header">Je huursubsidie kan je nu ook digitaal aanvragen</p>
+                                <p>Je huurt een woning op de private huurmarkt en hebt een beperkt inkomen. De huursubsidie is een maandelijks bedrag om je te helpen je huurprijs te betalen... <a href="#">Lees meer</a></p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="images/news3.svg" alt="holder image for news section 1">
+                            <div class="articles2">
+                                <p class="header">Rentevoet Mijn VerbouwLening stijgt naar 2,75%</p>
+                                <p>De rentevoet van Mijn VerbouwLening is gekoppeld aan de wettelijke rentevoet. Voorheen bedroeg de rentevoet van Mijn VerbouwLening 2,25%.... <a href="#">Lees meer</a></p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -2,6 +2,12 @@
     background-color: #B2FFA8;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .top {
     display: flex;
     flex-direction: row;
@@ -168,3 +174,84 @@
     text-align: center;
 }
 
+.bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    width: 1275px;
+}
+
+.faqHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: calc(50% - 12px);
+    height: 350px;
+    padding: 24px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: "montserrat", sans-serif;
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 275px;
+    overflow-y: auto;
+}
+
+.articles .header {
+    font-weight: bold;
+}
+
+.articles article {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.news {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: calc(50% - 12px);
+    height: 350px;
+    padding: 24px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: "montserrat", sans-serif;
+}
+
+.articlesHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 275px;
+    overflow-y: auto;
+}
+
+.articlesHolder article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.articles2 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.articles2 .header {
+    font-weight: bold;
+}
+
+
+article img {
+    width: 150px;
+    height: 80px;
+}

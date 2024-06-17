@@ -10,7 +10,7 @@
                         <p class="navTxt">Home</p>
                 </a>
 
-                <a href="profile.php" class="navItems profileActive">
+                <a href="persoonlijkeInfo.php" class="navItems profileActive">
                         <div class="profile img"></div>
                         <p class="navTxt">Profiel</p>
                 </a>

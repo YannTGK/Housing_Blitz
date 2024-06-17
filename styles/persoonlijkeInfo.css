@@ -1,0 +1,70 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.content form {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.form-group .header {
+    font-weight: bold;
+}
+
+.sectie {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sectie1 input, .sectie2 input, .sectie1 select, .sectie2 select {
+    height: 60px;
+    width: 210px;
+    border-radius: 5px;
+    border-color: #D1D1D1;
+}
+
+.under {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.next {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.children {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+
+
+
+.voet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

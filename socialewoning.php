@@ -91,19 +91,22 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
     <?php include_once(__DIR__ . "/classes/nav.php") ?>
 
     <div class="screen">
-        <h3 class="housingLetter">
-            <?php if(isset($_SESSION['firstname'])){
-                echo $_SESSION['firstname'];
-            } else {
-                echo "firstname niet gevonden in sessie.";
-            } ?>
-            <?php if(isset($_SESSION['lastname'])){
-                echo $_SESSION['lastname'];
-            } else {
-                echo "lastname niet gevonden in sessie.";
-            } ?>
-            - Housing Blitz
-        </h3>
+        <div class="screenHead">
+            <a href="index.php" class="backLogo"></a>
+            <h3 class="housingLetter">
+                <?php if(isset($_SESSION['firstname'])){
+                    echo $_SESSION['firstname'];
+                } else {
+                    echo "firstname niet gevonden in sessie.";
+                } ?>
+                <?php if(isset($_SESSION['lastname'])){
+                    echo $_SESSION['lastname'];
+                } else {
+                    echo "lastname niet gevonden in sessie.";
+                } ?>
+                - Housing Blitz
+            </h3>
+        </div>
 
         <div class="content">
             <div class="left">

@@ -21,7 +21,7 @@ $conn = Db::getConnection();
 if(isset($_SESSION['id'])) {
     $user_id = $_SESSION['id'];
 
-        // Fetch financial information
+    // Fetch financial information
     $sql_financial_info = "SELECT income_source, income_amount FROM financial_info WHERE user_id = $user_id";
     $result_financial_info = $conn->query($sql_financial_info);
     $financial_info = $result_financial_info->fetch_assoc();
@@ -47,13 +47,17 @@ if(isset($_SESSION['id'])) {
     $result_family_status = $conn->query($sql_family_status);
     $family_status = $result_family_status->fetch_assoc();
 
+    // Fetch allowed income sources
+    $sql_income_sources = "SELECT income_source FROM allowed_income_sources";
+    $result_income_sources = $conn->query($sql_income_sources);
+    $income_sources = [];
+    while($row = $result_income_sources->fetch_assoc()) {
+        $income_sources[] = $row['income_source'];
+    }
 } else {
     echo "Gebruiker ID niet gevonden in sessie.";
     $laagste_positie = 0;
 }
-
-
-
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,43 +92,45 @@ if(isset($_SESSION['id'])) {
             <h1>Persoonlijke Info</h1>
             <form id="persoonlijkeInfoForm" action="/submit" method="post">
                 <div class="sectie1 sectie">
-                    <div class="form-group">
+                    <div class="spacing">
                         <p class="header">Financiële Informatie</p>
                         <div class="inline">
-                            <label for="income_source">Inkomst bronnen</label>
-                            <select id="income_source" name="income_source">
-                                <option value="1" selected>1</option>
+                            <label for="number_income_sources">Aantal inkomstbronnen</label>
+                            <select id="number_income_sources" name="number_income_sources" onchange="updateIncomeSources()">
+                                <?php for ($i = 1; $i <= 8; $i++): ?>
+                                    <option value="<?= $i ?>"><?= $i ?></option>
+                                <?php endfor; ?>
                             </select>
                         </div>
-                        <div class="under">
-                            <p>1ste inkomstbron</p>
+                        <div id="income_sources_container">
                             <div class="next">
                                 <div class="under">
-                                    <label for="income_source_1">Afkomst</label>
-                                    <select id="income_source_1" name="income_source_1">
-                                        <option value="Loondienst" <?= $financial_info['income_source'] == 'Loondienst' ? 'selected' : '' ?>>Loondienst</option>
+                                    <label for="income_source_0">1e inkomstbron</label>
+                                    <select id="income_source_0" name="income_source_0">
+                                        <?php foreach ($income_sources as $source): ?>
+                                            <option value="<?= htmlspecialchars($source) ?>"><?= htmlspecialchars($source) ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="under">
-                                    <label for="income_amount_1">Bedrag</label>
-                                    <input type="text" id="income_amount_1" name="income_amount_1" value="<?= $financial_info['income_amount'] ?>">
+                                <div class="amount under">
+                                    <label for="income_amount_0">Bedrag</label>
+                                    <input type="text" id="income_amount_0" name="income_amount_0">
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="spacing">
                         <p class="header">Vaste uitgaven</p>
                         <div class="inline">
                             <label for="expences_source">Vaste uitgaven</label>
                             <select id="expences_source" name="expences_source">
-                                <option value="1" >1</option>
+                                <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </div>
                         <div class="under">
                             <?php foreach ($fixed_expenses as $index => $expense) { ?>
-                                <div class="form-group">
+                                <div>
                                     <div class="next">
                                         <div class="under">
                                             <label for="expense_title_<?= $index ?>">Titel</label>
@@ -134,34 +140,27 @@ if(isset($_SESSION['id'])) {
                                             <label for="expense_amount_<?= $index ?>">Bedrag</label>
                                             <input type="text" id="expense_amount_<?= $index ?>" name="expense_amount_<?= $index ?>" value="<?= $expense['expense_amount'] ?>">
                                         </div>
-
                                     </div>
                                 </div>
                             <?php } ?>
-
                         </div>
                     </div>
-                    
                 </div>
-                
                 <div class="sectie2 sectie">
-                    <div class="form-group">
+                    <div class="spacing">
                         <div class="inline">
-                            <label for="child">Kinderen ten laste</label>
+                            <label for="child" class="header">Kinderen ten laste</label>
                             <select id="child" name="child">
-                                <option value="1" >1</option>
+                                <option value="1">1</option>
                                 <option value="2" selected>2</option>
                             </select>
                         </div>
                         <div class="children">
-
                             <?php foreach ($children as $index => $child) { ?>
-                                
                                 <div class="form-group">
-                                <p>Kind <?php echo $index +1 ?></p>
                                     <div class="next">
                                         <div class="under">
-                                            <label for="child_first_name_<?= $index ?>">Voornaam</label>
+                                            <label for="child_first_name_<?= $index ?>">Kind <?= $index + 1 ?> - Voornaam</label>
                                             <input type="text" id="child_first_name_<?= $index ?>" name="child_first_name_<?= $index ?>" value="<?= $child['first_name'] ?>">
                                         </div>
                                         <div class="under">
@@ -181,19 +180,16 @@ if(isset($_SESSION['id'])) {
                                                 <option value="Dochter" <?= $child['relationship'] == 'Dochter' ? 'selected' : '' ?>>Dochter</option>
                                             </select>
                                         </div>
-    
                                     </div>
                                 </div>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
-                
                 <div class="sectie3 .sectie">
                     <div class="form-group">
-                        <p class="header">Gezinsinformatie</p>
                         <div class="radio-group">
-                            <label>Burgerlijke staat</label>
+                            <label class="header">Burgerlijke staat</label>
                             <label><input type="radio" name="marital_status" value="Ongehuwd/vrijgezel" <?= $family_status['marital_status'] == 'Ongehuwd/vrijgezel' ? 'checked' : '' ?>> Ongehuwd/vrijgezel</label>
                             <label><input type="radio" name="marital_status" value="Gehuwd" <?= $family_status['marital_status'] == 'Gehuwd' ? 'checked' : '' ?>> Gehuwd</label>
                             <label><input type="radio" name="marital_status" value="Wettelijk samenwonend" <?= $family_status['marital_status'] == 'Wettelijk samenwonend' ? 'checked' : '' ?>> Wettelijk samenwonend</label>
@@ -202,7 +198,7 @@ if(isset($_SESSION['id'])) {
                             <label><input type="radio" name="marital_status" value="Feitelijk samenwonend" <?= $family_status['marital_status'] == 'Feitelijk samenwonend' ? 'checked' : '' ?>> Feitelijk samenwonend</label>
                         </div>
                         <div class="radio-group">
-                            <label>Woonsituatie</label>
+                            <label class="header">Woonsituatie</label>
                             <label><input type="radio" name="housing_situation" value="Huurwoning" <?= $family_status['housing_situation'] == 'Huurwoning' ? 'checked' : '' ?>> Huurwoning</label>
                             <label><input type="radio" name="housing_situation" value="Eigen woning" <?= $family_status['housing_situation'] == 'Eigen woning' ? 'checked' : '' ?>> Eigen woning</label>
                             <label><input type="radio" name="housing_situation" value="Rusthuis/Woonzorgcentrum" <?= $family_status['housing_situation'] == 'Rusthuis/Woonzorgcentrum' ? 'checked' : '' ?>> Rusthuis/Woonzorgcentrum</label>
@@ -219,15 +215,68 @@ if(isset($_SESSION['id'])) {
                 </div>
                 <button type="submit" id="buttonForm" class="button">Opslaan</button>
             </div>
-
-            
         </div>
     </div>
 
     <script>
-        document.getElementById('buttonForm').addEventListener('click', function() {
-            document.getElementById('persoonlijkeInfoForm').submit();
-        });
+        const incomeSourcesContainer = document.getElementById('income_sources_container');
+        const numberIncomeSources = document.getElementById('number_income_sources');
+        const incomeSources = <?= json_encode($income_sources) ?>;
+
+        function createIncomeSourceDropdown(index) {
+            const divNext = document.createElement('div');
+            divNext.classList.add('next');
+
+            const divUnderSource = document.createElement('div');
+            divUnderSource.classList.add('under');
+
+            const label = document.createElement('label');
+            label.htmlFor = `income_source_${index}`;
+            label.innerText = `${index + 1}e inkomstbron`;
+            divUnderSource.appendChild(label);
+
+            const select = document.createElement('select');
+            select.id = `income_source_${index}`;
+            select.name = `income_source_${index}`;
+            incomeSources.forEach(source => {
+                const option = document.createElement('option');
+                option.value = source;
+                option.innerText = source;
+                select.appendChild(option);
+            });
+            divUnderSource.appendChild(select);
+
+            divNext.appendChild(divUnderSource);
+
+            const divAmount = document.createElement('div');
+            divAmount.classList.add('amount', 'under');
+
+            const labelAmount = document.createElement('label');
+            labelAmount.htmlFor = `income_amount_${index}`;
+            labelAmount.innerText = 'Bedrag';
+            divAmount.appendChild(labelAmount);
+
+            const inputAmount = document.createElement('input');
+            inputAmount.type = 'text';
+            inputAmount.id = `income_amount_${index}`;
+            inputAmount.name = `income_amount_${index}`;
+            divAmount.appendChild(inputAmount);
+
+            divNext.appendChild(divAmount);
+
+            return divNext;
+        }
+
+        function updateIncomeSources() {
+            incomeSourcesContainer.innerHTML = '';
+            const count = parseInt(numberIncomeSources.value, 10);
+            for (let i = 0; i < count; i++) {
+                incomeSourcesContainer.appendChild(createIncomeSourceDropdown(i));
+            }
+        }
+
+        numberIncomeSources.addEventListener('change', updateIncomeSources);
+        window.addEventListener('DOMContentLoaded', updateIncomeSources);
     </script>
 </body>
 </html>

@@ -20,7 +20,7 @@ $conn = Db::getConnection();
 // Controleer of user_id is ingesteld in de sessie
 if(isset($_SESSION['id'])) {
     $user_id = $_SESSION['id'];
-    $sql = "SELECT sociale_woning_positie, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor FROM user_chance_percentages WHERE user_id = $user_id";
+    $sql = "SELECT sociale_woning_positie, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor FROM user_stad_chance_percentages WHERE user_id = $user_id";
     $result = $conn->query($sql);
 
     if ($result === false) {
@@ -38,13 +38,25 @@ if(isset($_SESSION['id'])) {
         echo "Gebruiker niet gevonden in de database.";
         $sociale_woning = $premies_subsidies = $particulieren_huurmarkt = $sociaal_verhuurkantoor = 0;
     }
+
+    // Nieuwe query om de laagste positie van de gebruiker voor sociale woningen op te halen
+    $sql_lowest_position = "SELECT MIN(sociale_woning_positie) as laagste_positie FROM user_stad_chance_percentages WHERE user_id = $user_id";
+    $result_lowest_position = $conn->query($sql_lowest_position);
+
+    if ($result_lowest_position === false) {
+        echo "Error: " . $conn->error;
+        $laagste_positie = "N/A";
+    } else {
+        $row_lowest_position = $result_lowest_position->fetch_assoc();
+        $laagste_positie = $row_lowest_position['laagste_positie'];
+    }
 } else {
     echo "Gebruiker ID niet gevonden in sessie.";
-    $sociale_woning = $premies_subsidies = $particulieren_huurmarkt = $sociaal_verhuurkantoor = 0;
+    $laagste_positie = $premies_subsidies = $particulieren_huurmarkt = $sociaal_verhuurkantoor = $laagste_positie = 0;
 }
 
 // Kansberekening
-$kans_op_sociale_woning = (1 - ($sociale_woning / 400))*100 ;
+$kans_op_sociale_woning = (1 - ($laagste_positie / 400)) * 100;
 $kans_op_sociale_woning = round($kans_op_sociale_woning, 0); // Afronden tot 2 decimalen voor weergave
 
 // Function to determine color based on percentage
@@ -109,7 +121,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                         <ul class="legend">
                             <li> 
                                 <strong>
-                                    Sociale Woning
+                                    <a href="socialewoning.php">Sociale Woning</a>
                                 </strong>  
                                 <span>
                                     <?php echo $kans_op_sociale_woning; ?>%
@@ -117,7 +129,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                             </li>
                             <li> 
                                 <strong>
-                                    Premies/Subsidies
+                                    <a href="https://www.premiezoeker.be/">Premies/Subsidies</a>
                                 </strong>
                                 <span>
                                     <?php echo $premies_subsidies; ?>%
@@ -125,7 +137,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                             </li>
                             <li> 
                                 <strong>
-                                    Particulieren Huurmarkt
+                                    <a href="https://www.vlaanderen.be/een-huis-of-appartement-kopen">Particulieren Huurmarkt</a>
                                 </strong>  
                                 <span>
                                     <?php echo $particulieren_huurmarkt; ?>%
@@ -133,7 +145,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                             </li>
                             <li> 
                                 <strong>
-                                    Sociaal Verhuurkantoor
+                                    <a href="https://www.vlaanderen.be/een-sociale-woning-huren-bij-een-woonmaatschappij">Sociaal Verhuurkantoor</a>
                                 </strong>  
                                 <span>
                                     <?php echo $sociaal_verhuurkantoor; ?>%
@@ -143,7 +155,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                     </div>
                 </div>
                 <div class="card">
-                    <h3 class="title"><?php echo $sociale_woning; ?> ste</h3>
+                    <h3 class="title"><?php echo $laagste_positie; ?> ste</h3>
                     <p class="body-text">
                         Je staat in de rij in 3 steden voor een sociale woning.
                     </p>
@@ -154,7 +166,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                     <p class="body-text">
                         In Mechelen sta je op de 31ste plaats wat momenteel je grootste kans is. De verwachte wachttijd is nog 2 jaar.
                     </p>
-                    <a href="#" class="button">Elke stad zien</a>
+                    <a href="socialewoning.php" class="button">Elke stad zien</a>
                 </div> 
                 <div class="addInfo">
                     <div class="city">

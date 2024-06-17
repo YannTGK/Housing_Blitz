@@ -100,10 +100,14 @@ header {
     font-size: 20px;
 }
 
-h1, h2, h3, p, strong, a, label, input, ul, i {
+h1, h2, h3, p, strong, a, label, input, ul, i, span {
     margin: 0;
     font-family: "montserrat", sans-serif;
     color: #211F54;
+}
+
+span {
+    font-size: 12px;
 }
 
 .btn .formButton {

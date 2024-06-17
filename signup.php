@@ -37,14 +37,27 @@ if (!empty($_POST)){
             if ($conn->query($query) === TRUE) {
                 $user_id = $conn->insert_id; // Get the last inserted ID
 
-                // Add dummy data for user_chance_percentages
-                $dummy_sociale_woning = rand(0, 400);
-                $dummy_premies_subsidies = rand(0, 100);
-                $dummy_particulieren_huurmarkt = rand(0, 100);
-                $dummy_sociaal_verhuurkantoor = rand(0, 100);
+                // Get the list of city IDs
+                $cities_result = $conn->query("SELECT id FROM steden");
+                $cities = [];
+                while ($city = $cities_result->fetch_assoc()) {
+                    $cities[] = $city['id'];
+                }
 
-                $query = "INSERT INTO user_chance_percentages (user_id, sociale_woning_positie, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor) VALUES ('$user_id', '$dummy_sociale_woning', '$dummy_premies_subsidies', '$dummy_particulieren_huurmarkt', '$dummy_sociaal_verhuurkantoor')";
-                $conn->query($query);
+                // Shuffle the city IDs and pick two random ones
+                shuffle($cities);
+                $selected_cities = array_slice($cities, 0, 2);
+
+                // Add dummy data for user_stad_chance_percentages in two random cities
+                foreach ($selected_cities as $city_id) {
+                    $dummy_sociale_woning = rand(0, 400);
+                    $dummy_premies_subsidies = rand(0, 100);
+                    $dummy_particulieren_huurmarkt = rand(0, 100);
+                    $dummy_sociaal_verhuurkantoor = rand(0, 100);
+
+                    $query = "INSERT INTO user_stad_chance_percentages (user_id, stad_id, sociale_woning_positie, premies_subsidies, particulieren_huurmarkt, sociaal_verhuurkantoor) VALUES ('$user_id', '$city_id', '$dummy_sociale_woning', '$dummy_premies_subsidies', '$dummy_particulieren_huurmarkt', '$dummy_sociaal_verhuurkantoor')";
+                    $conn->query($query);
+                }
 
                 session_start(); // Start session
                 $_SESSION['id'] = $user_id; // Store user ID in session

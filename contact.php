@@ -65,7 +65,7 @@ if(isset($_GET['logout'])) {
                     </address>
                 </div>
                 <div class="contact-form">
-                    <form action="#" method="post">
+                    <form action="contactsend.php" method="post">
                         <div class="form-group">
                             <label for="voornaam">Voornaam *</label>
                             <input type="text" id="voornaam" name="voornaam" placeholder="e.g Peter" required>
@@ -94,7 +94,7 @@ if(isset($_GET['logout'])) {
                     </form>
                 </div>
             </section>
-        </main>
+
     </div>
 
     </body>

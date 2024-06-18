@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f1f1f1;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar ul li a .icon {
+    margin-right: 10px;
+}
+
+.sidebar ul li.active a {
+    background-color: #c8f0c8;
+    color: #000;
+}
+
+.sidebar .logout {
+    text-decoration: none;
+    color: #d9534f;
+    display: block;
+    margin: 20px;
+    text-align: center;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header input[type="search"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.confirmation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.confirmation-message, .confirmation-info {
+    width: 48%;
+}
+
+.confirmation-message {
+    text-align: center;
+}
+
+.confirmation-message .checkmark {
+    font-size: 100px;
+    color: #28a745;
+    margin-top: 20px;
+}
+
+.confirmation-info h3 {
+    margin-top: 0;
+}
+
+.confirmation-info address {
+    margin-top: 10px;
+    font-style: normal;
+}
+
+.confirmation-info p {
+    margin-bottom: 10px;
+}

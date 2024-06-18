@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f1f1f1;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar ul li a .icon {
+    margin-right: 10px;
+}
+
+.sidebar ul li.active a {
+    background-color: #c8f0c8;
+    color: #000;
+}
+
+.sidebar .logout {
+    text-decoration: none;
+    color: #d9534f;
+    display: block;
+    margin: 20px;
+    text-align: center;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header input[type="search"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.contact-info, .contact-form {
+    width: 48%;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2, .contact-info h3 {
+    margin-top: 0;
+}
+
+.contact-info .small {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.contact-info address {
+    margin-top: 20px;
+    font-style: normal;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #218838;
+}

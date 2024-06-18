@@ -20,7 +20,7 @@
                         <p class="navTxt">Contact</p>
                 </a>
 
-                <a href="settings.php" class="navItems settingsActive">
+                <a href="setting.php" class="navItems settingsActive">
                         <div class="settings img"></div>
                         <p class="navTxt">Instellingen</p>
                 </a>

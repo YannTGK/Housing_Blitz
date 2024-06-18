@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f1f1f1;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar ul li a .icon {
+    margin-right: 10px;
+}
+
+.sidebar ul li.active a {
+    background-color: #c8f0c8;
+    color: #000;
+}
+
+.sidebar .logout {
+    text-decoration: none;
+    color: #d9534f;
+    display: block;
+    margin: 20px;
+    text-align: center;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header input[type="search"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.redirect-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.redirect-info h2 {
+    color: #5A2C75;
+    margin-bottom: 30px;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.logos img {
+    height: 80px;
+}
+
+.success-message h3 {
+    margin-top: 0;
+    color: #5A2C75;
+}
+
+.success-message p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.success-message a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.success-message a:hover {
+    text-decoration: underline;
+}

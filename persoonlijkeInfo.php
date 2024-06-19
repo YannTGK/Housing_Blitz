@@ -24,39 +24,103 @@ if(isset($_SESSION['id'])) {
     // Fetch financial information
     $sql_financial_info = "SELECT income_source, income_amount FROM financial_info WHERE user_id = $user_id";
     $result_financial_info = $conn->query($sql_financial_info);
-    $financial_info = $result_financial_info->fetch_assoc();
+    if ($result_financial_info) {
+        $financial_info = $result_financial_info->fetch_assoc();
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
+    }
+
+    // Fetch allowed expenses
+    $sql_allowed_expenses = "SELECT expences FROM allowed_expences";
+    $result_allowed_expenses = $conn->query($sql_allowed_expenses);
+    if ($result_allowed_expenses) {
+        $allowed_expenses = [];
+        while($row = $result_allowed_expenses->fetch_assoc()) {
+            $allowed_expenses[] = $row['expences'];
+        }
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
+    }
 
     // Fetch fixed expenses
     $sql_fixed_expenses = "SELECT expense_title, expense_amount FROM fixed_expenses WHERE user_id = $user_id";
     $result_fixed_expenses = $conn->query($sql_fixed_expenses);
-    $fixed_expenses = [];
-    while($row = $result_fixed_expenses->fetch_assoc()) {
-        $fixed_expenses[] = $row;
+    if ($result_fixed_expenses) {
+        $fixed_expenses = [];
+        while($row = $result_fixed_expenses->fetch_assoc()) {
+            $fixed_expenses[] = $row;
+        }
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
     }
 
     // Fetch children information
     $sql_children = "SELECT first_name, last_name, birth_date, relationship FROM children WHERE user_id = $user_id";
     $result_children = $conn->query($sql_children);
-    $children = [];
-    while($row = $result_children->fetch_assoc()) {
-        $children[] = $row;
+    if ($result_children) {
+        $children = [];
+        while($row = $result_children->fetch_assoc()) {
+            $children[] = $row;
+        }
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
     }
 
     // Fetch family status
     $sql_family_status = "SELECT marital_status, housing_situation FROM family_status WHERE user_id = $user_id";
     $result_family_status = $conn->query($sql_family_status);
-    $family_status = $result_family_status->fetch_assoc();
+    if ($result_family_status) {
+        $family_status = $result_family_status->fetch_assoc();
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
+    }
+
+    // Fetch allowed marital statuses
+    $sql_allowed_marital_statuses = "SELECT marital_status FROM allowed_marital_statuses";
+    $result_allowed_marital_statuses = $conn->query($sql_allowed_marital_statuses);
+    if ($result_allowed_marital_statuses) {
+        $allowed_marital_statuses = [];
+        while($row = $result_allowed_marital_statuses->fetch_assoc()) {
+            $allowed_marital_statuses[] = $row['marital_status'];
+        }
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
+    }
+
+    // Fetch allowed housing situations
+    $sql_allowed_housing_situations = "SELECT housing_situation FROM allowed_housing_situations";
+    $result_allowed_housing_situations = $conn->query($sql_allowed_housing_situations);
+    if ($result_allowed_housing_situations) {
+        $allowed_housing_situations = [];
+        while($row = $result_allowed_housing_situations->fetch_assoc()) {
+            $allowed_housing_situations[] = $row['housing_situation'];
+        }
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
+    }
 
     // Fetch allowed income sources
     $sql_income_sources = "SELECT income_source FROM allowed_income_sources";
     $result_income_sources = $conn->query($sql_income_sources);
-    $income_sources = [];
-    while($row = $result_income_sources->fetch_assoc()) {
-        $income_sources[] = $row['income_source'];
+    if ($result_income_sources) {
+        $income_sources = [];
+        while($row = $result_income_sources->fetch_assoc()) {
+            $income_sources[] = $row['income_source'];
+        }
+    } else {
+        echo "Error: " . $conn->error;
+        exit;
     }
 } else {
     echo "Gebruiker ID niet gevonden in sessie.";
-    $laagste_positie = 0;
+    exit;
 }
 ?><!DOCTYPE html>
 <html lang="en">
@@ -72,7 +136,7 @@ if(isset($_SESSION['id'])) {
 
     <div class="screen">
         <div class="screenHead">
-            <a href="index.php" class="backLogo"></a>
+            <a href="profiel.php" class="backLogo"></a>
             <h3 class="housingLetter">
                 <?php if(isset($_SESSION['firstname'])){
                     echo $_SESSION['firstname'];
@@ -92,6 +156,7 @@ if(isset($_SESSION['id'])) {
             <h1>Persoonlijke Info</h1>
             <form id="persoonlijkeInfoForm" action="/submit" method="post">
                 <div class="sectie1 sectie">
+                    <!-- Financiële Informatie Section -->
                     <div class="spacing">
                         <p class="header">Financiële Informatie</p>
                         <div class="inline">
@@ -119,6 +184,8 @@ if(isset($_SESSION['id'])) {
                             </div>
                         </div>
                     </div>
+
+                    <!-- Vaste uitgaven Section -->
                     <div class="spacing">
                         <p class="header">Vaste uitgaven</p>
                         <div class="inline">
@@ -134,7 +201,11 @@ if(isset($_SESSION['id'])) {
                                     <div class="next">
                                         <div class="under">
                                             <label for="expense_title_<?= $index ?>">Titel</label>
-                                            <input type="text" id="expense_title_<?= $index ?>" name="expense_title_<?= $index ?>" value="<?= $expense['expense_title'] ?>">
+                                            <select id="expense_title_<?= $index ?>" name="expense_title_<?= $index ?>">
+                                                <?php foreach ($allowed_expenses as $allowed_expense): ?>
+                                                    <option value="<?= htmlspecialchars($allowed_expense) ?>" <?= $expense['expense_title'] == $allowed_expense ? 'selected' : '' ?>><?= htmlspecialchars($allowed_expense) ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                         <div class="under">
                                             <label for="expense_amount_<?= $index ?>">Bedrag</label>
@@ -146,6 +217,8 @@ if(isset($_SESSION['id'])) {
                         </div>
                     </div>
                 </div>
+
+                <!-- Kinderen ten laste Section -->
                 <div class="sectie2 sectie">
                     <div class="spacing">
                         <div class="inline">
@@ -186,34 +259,38 @@ if(isset($_SESSION['id'])) {
                         </div>
                     </div>
                 </div>
+
+                <!-- Family status Section -->
                 <div class="sectie3 .sectie">
                     <div class="form-group">
                         <div class="radio-group">
                             <label class="header">Burgerlijke staat</label>
-                            <label><input type="radio" name="marital_status" value="Ongehuwd/vrijgezel" <?= $family_status['marital_status'] == 'Ongehuwd/vrijgezel' ? 'checked' : '' ?>> Ongehuwd/vrijgezel</label>
-                            <label><input type="radio" name="marital_status" value="Gehuwd" <?= $family_status['marital_status'] == 'Gehuwd' ? 'checked' : '' ?>> Gehuwd</label>
-                            <label><input type="radio" name="marital_status" value="Wettelijk samenwonend" <?= $family_status['marital_status'] == 'Wettelijk samenwonend' ? 'checked' : '' ?>> Wettelijk samenwonend</label>
-                            <label><input type="radio" name="marital_status" value="Gescheiden" <?= $family_status['marital_status'] == 'Gescheiden' ? 'checked' : '' ?>> Gescheiden</label>
-                            <label><input type="radio" name="marital_status" value="Weduwe/weduwenaar" <?= $family_status['marital_status'] == 'Weduwe/weduwenaar' ? 'checked' : '' ?>> Weduwe/weduwenaar</label>
-                            <label><input type="radio" name="marital_status" value="Feitelijk samenwonend" <?= $family_status['marital_status'] == 'Feitelijk samenwonend' ? 'checked' : '' ?>> Feitelijk samenwonend</label>
+                            <?php foreach ($allowed_marital_statuses as $status): ?>
+                                <label>
+                                    <input type="radio" name="marital_status" value="<?= htmlspecialchars($status) ?>" <?= (isset($family_status['marital_status']) && $family_status['marital_status'] == $status) ? 'checked' : '' ?>>
+                                    <?= htmlspecialchars($status) ?>
+                                </label>
+                            <?php endforeach; ?>
                         </div>
                         <div class="radio-group">
                             <label class="header">Woonsituatie</label>
-                            <label><input type="radio" name="housing_situation" value="Huurwoning" <?= $family_status['housing_situation'] == 'Huurwoning' ? 'checked' : '' ?>> Huurwoning</label>
-                            <label><input type="radio" name="housing_situation" value="Eigen woning" <?= $family_status['housing_situation'] == 'Eigen woning' ? 'checked' : '' ?>> Eigen woning</label>
-                            <label><input type="radio" name="housing_situation" value="Rusthuis/Woonzorgcentrum" <?= $family_status['housing_situation'] == 'Rusthuis/Woonzorgcentrum' ? 'checked' : '' ?>> Rusthuis/Woonzorgcentrum</label>
-                            <label><input type="radio" name="housing_situation" value="Tijdelijke huisvesting" <?= $family_status['housing_situation'] == 'Tijdelijke huisvesting' ? 'checked' : '' ?>> Tijdelijke huisvesting</label>
-                            <label><input type="radio" name="housing_situation" value="Gemeenschapsleven" <?= $family_status['housing_situation'] == 'Gemeenschapsleven' ? 'checked' : '' ?>> Gemeenschapsleven</label>
+                            <?php foreach ($allowed_housing_situations as $situation): ?>
+                                <label>
+                                    <input type="radio" name="housing_situation" value="<?= htmlspecialchars($situation) ?>" <?= (isset($family_status['housing_situation']) && $family_status['housing_situation'] == $situation) ? 'checked' : '' ?>>
+                                    <?= htmlspecialchars($situation) ?>
+                                </label>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
+
             </form>
             <div class="voet">
-                <div class="form-group">
-                    <p class="header">Belastingaangifte</p>
-                    <input type="file" id="tax_file" name="tax_file">
-                </div>
-                <button type="submit" id="buttonForm" class="button">Opslaan</button>
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <label for="fileToUpload" style="display: none;">Select document to upload:</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                </form>
+                <button type="submit" class="button">Save</button>
             </div>
         </div>
     </div>

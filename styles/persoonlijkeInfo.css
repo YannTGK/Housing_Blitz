@@ -1,3 +1,6 @@
+.profileActive {
+    background-color: #B2FFA8;
+}
 
 
 .content {
@@ -85,5 +88,4 @@
     justify-content: space-between;
     align-items: center;
 }
-
 

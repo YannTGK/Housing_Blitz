@@ -46,17 +46,6 @@
     gap: 8px;
 }
 
-/*
-
-.input {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-
-    */
-
 .form-group input {
     height: 60px;
     width: 210px;

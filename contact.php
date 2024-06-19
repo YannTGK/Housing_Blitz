@@ -90,7 +90,7 @@ if(isset($_GET['logout'])) {
                             <label for="bijlage">Bijlage toevoegen</label>
                             <input type="file" id="bijlage" name="bijlage">
                         </div>
-                        <button type="submit">Verzenden</button>
+                        <button class="button" type="submit">Verzenden</button>
                     </form>
                 </div>
             </section>

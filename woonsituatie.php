@@ -19,7 +19,7 @@ if(isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Housing Blitz - Instellingen</title>
+    <title>Housing Blitz - woonsituatie</title>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/woonsituatie.css">
@@ -53,7 +53,7 @@ if(isset($_GET['logout'])) {
             </div>
             <form action="#" class="group">
                 <div class="left form-group">
-                    <h3>Adress</h3>
+                    <h3>Adres</h3>
                     <input type="text" id="street" name="street" placeholder="Straat">
                     <input type="text" id="number" name="number" placeholder="Nummer">
                     <input type="text" id="postcode" name="postcode" placeholder="Postcode">

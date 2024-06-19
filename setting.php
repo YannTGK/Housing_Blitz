@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(!isset($_SESSION['loggedin'])){
     header("Location: login.php");
@@ -13,8 +12,8 @@ if(isset($_GET['logout'])) {
     header("Location: login.php"); // Redirect to the login page
     exit;
 }
-
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +29,6 @@ if(isset($_GET['logout'])) {
 
 <div class="screen">
     <div class="screenHead">
-        <a href="index.php" class="backLogo"></a>
         <h3 class="housingLetter">
             <?php if(isset($_SESSION['firstname'])){
                 echo $_SESSION['firstname'];
@@ -47,17 +45,31 @@ if(isset($_GET['logout'])) {
     </div>
     
     <section class="settings">
-                <h2>Instellingen</h2>
-                <div class="settings-options">
-                    <div class="option">Notificaties</div>
-                    <div class="option">Taal instellingen</div>
-                    <div class="option">Privacy & Policy</div>
-                    <div class="option">Feedback</div>
-                    <div class="option">Toegankelijkheid</div>
-                </div>
-            </section>
+        <h2>Instellingen</h2>
+        <div class="settings-options">
+            <div class="option" onclick="openModal()">Notificaties</div>
+            <div class="option">Taal instellingen</div>
+            <div class="option">Privacy & Policy</div>
+            <div class="option">Feedback</div>
+            <div class="option">Toegankelijkheid</div>
+        </div>
+    </section>
+</div>
 
+<!-- Modal -->
+<div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Allow notifications ?</h3>
+        <label class="switch">
+            <input type="checkbox" id="notificationToggle">
+            <span class="slider round"></span>
+        </label>
+        <p>Do you want to get notified when something changes about your position or percentage</p>
+    </div>
+</div>
 
+<script src="script/settings.js"></script>
 
 </body>
 </html>

@@ -1,134 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-.sidebar {
-    width: 200px;
-    background-color: #f1f1f1;
-    padding-top: 20px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-
-.sidebar ul li a .icon {
-    margin-right: 10px;
-}
-
-.sidebar ul li.active a {
-    background-color: #c8f0c8;
-    color: #000;
-}
-
-.sidebar .logout {
-    text-decoration: none;
-    color: #d9534f;
-    display: block;
-    margin: 20px;
-    text-align: center;
+.profileActive {
+    background-color: #B2FFA8;
 }
 
 .content {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
-header {
+.huidig {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    gap: 16px;
 }
 
-header h1 {
-    margin: 0;
-}
-
-header input[type="search"] {
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.update-living-situation {
-    margin-top: 20px;
-}
-
-.update-living-situation h2 {
-    color: #5A2C75;
-    margin-bottom: 20px;
-}
-
-form {
+.group {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 350px;
 }
 
 .form-group {
-    flex: 1;
-    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input[type="text"],
-.form-group input[type="date"],
-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.radio-group {
+.radio {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
-.radio-group label {
-    margin-bottom: 5px;
+/*
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    align-self: flex-start;
+
+    */
+
+.form-group input {
+    height: 60px;
+    width: 210px;
 }
 
-button:hover {
-    background-color: #218838;
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+    

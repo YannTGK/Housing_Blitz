@@ -116,7 +116,7 @@ header {
     font-size: 20px;
 }
 
-h1, h2, h3, p, strong, a, label, input, ul, i, span, select {
+h1, h2, h3, p, strong, a, label, input, ul, i, span, select, input {
     margin: 0;
     font-family: "montserrat", sans-serif;
     color: #211F54;
@@ -127,7 +127,7 @@ span {
 }
 
 .btn .formButton {
-    background-color: #007AFF;
+    background-color: #86E7B8;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -137,13 +137,13 @@ span {
 }
 
 .btn .formButton:hover {
-    background-color: #005bb5;
+    background-color: #64D49C;
 }
 
 .button {
     display: inline-block;
     padding: 8px 22px;
-    background-color: #007AFF;
+    background-color: #86E7B8;
     color: white;
     text-align: center;
     border-radius: 5px;
@@ -152,6 +152,21 @@ span {
 }
 
 .button:hover {
-    background-color: #005bb5;
+    background-color: #64D49C;
 }
 
+.button2 {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    background-color: #86E7B8;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button2:hover {
+    background-color: #64D49C;
+}

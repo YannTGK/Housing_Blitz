@@ -104,7 +104,7 @@ if(isset($_SESSION['id'])) {
                             <p>Geen</p>
                         </div>
                     </div>
-                    <a href="#" class="button2">Voorkeur aanpassen</a>
+                    <a href="woonwensen.php" class="button2">Voorkeur aanpassen</a>
                 </div>
             </div>
             <div class="middle under">
@@ -113,15 +113,15 @@ if(isset($_SESSION['id'])) {
                         <div class="gezinsinfo">
                             <h3>Gezinsinformatie</h3>
                             <div class="Text">
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Burgerlijke staat</strong>
                                     <p>ongehuwd</p>
                                 </div>
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Woonstituatie</strong>
                                     <p>Alleenstaande ouder</p>
                                 </div>
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Kinderen ten laste</strong>
                                     <p>Emma (12), dochter; <br>
                                     Kevin (10), zoon;</p>
@@ -133,19 +133,19 @@ if(isset($_SESSION['id'])) {
                         <div class="gezinsinfo">
                             <h3>Financiele informatie</h3>
                             <div class="Text">
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Netto-inkomen</strong>
                                     <p>Loondienst €1350</p>
                                 </div>
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Uitgaven</strong>
                                     <p>Maandelijkse leningen €150; Alimentatie €100</p>
                                 </div>
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Uitkering bewijzen</strong>
                                     <p>Geen</p>
                                 </div>
-                                <div class="next">
+                                <div class="next2">
                                     <strong>Belastingaangiften</strong>
                                     <p> ingediend </p>
                                 </div>
@@ -155,7 +155,7 @@ if(isset($_SESSION['id'])) {
                     <a href="persoonlijkeInfo.php" class="button2">Bewerken</a>   
                 </div>
                 <div class="botMiddle">
-                    <div class="gezinsinfo">
+                    <div class="gezinsinfo2">
                         <h3>Huidige woonsituatie</h3>
                         <div class="Text">
                             <div class="next">
@@ -181,7 +181,7 @@ if(isset($_SESSION['id'])) {
                         </div>
 
                     </div>
-                    <a href="#" class="button2">Pas aan</a>
+                    <a href="woonsituatie.php" class="button2">Pas aan</a>
                 </div>
             </div>
             <div class="right under">

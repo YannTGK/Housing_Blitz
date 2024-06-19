@@ -1,145 +1,55 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+.profileActive {
+    background-color: #B2FFA8;
 }
 
-.container {
+.group {
     display: flex;
-    height: 100vh;
+    flex-direction: row;
+    gap: 100px;
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #f1f1f1;
-    padding-top: 20px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333;
+.left {
     display: flex;
-    align-items: center;
-    padding: 10px;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.sidebar ul li a .icon {
-    margin-right: 10px;
+.left img {
+    width: 225px;
 }
 
-.sidebar ul li.active a {
-    background-color: #c8f0c8;
-    color: #000;
-}
-
-.sidebar .logout {
-    text-decoration: none;
-    color: #d9534f;
-    display: block;
-    margin: 20px;
-    text-align: center;
-}
-
-.content {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
-}
-
-header {
+.radio {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    flex-direction: column;
+    gap: 8px;
 }
 
-header h1 {
-    margin: 0;
-}
-
-header input[type="search"] {
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.woon-wensen {
-    margin-top: 20px;
-}
-
-.woon-wensen h2 {
-    color: #5A2C75;
-    margin-bottom: 20px;
-}
-
-.woon-wensen-content {
+.middle {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;
+    gap: 32px;
+    width: 350px;
 }
 
-.woon-wensen-content img {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-}
-
-form {
+.input {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .form-group {
-    flex: 1;
-    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.form-group input {
+    height: 60px;
+    width: 210px;
 }
 
-.radio-group {
+.right {
     display: flex;
     flex-direction: column;
-}
-
-.radio-group label {
-    margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    align-self: flex-start;
-}
-
-button:hover {
-    background-color: #218838;
+    justify-content: space-between;
 }

@@ -1,20 +1,16 @@
+.homeActive {
+    background-color: #B2FFA8;
+}
+
+
 .content {
     flex: 1;
     padding: 20px;
     background-color: #fff;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
 
-header h1 {
-    margin: 0;
-}
+
 
 .faq {
     margin-top: 20px;
@@ -26,35 +22,47 @@ header h1 {
 }
 
 .faq-item {
+
     margin-bottom: 20px;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
 
 .faq-question {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
+    flex: 1;
 }
 
 .faq-question h3 {
     margin: 0;
+    flex: 1;
+}
+
+.faq-question img {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 40px;
+    width: auto;
 }
 
 .faq-answer {
-    margin-top: 10px;
+    margin-top: 0;
+    flex: 2;
 }
 
 .faq-answer p {
     margin: 0;
-}
-
-.faq-answer img {
-    margin-top: 10px;
-    height: 40px;
+    padding: 10px;
+    padding-right: 100px;
 }
 
 .faq-answer a {
     color: #0066cc;
     text-decoration: none;
+    display: block;
+    margin-top: 5px;
 }
 
 .faq-answer a:hover {

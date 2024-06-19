@@ -55,6 +55,7 @@ if(isset($_GET['logout'])) {
                 <div class="confirmation-info">
                     <h3>Hou je mailbox in de gaten</h3>
                     <p>Er wordt zo snel als mogelijk geantwoord op je verzoek. Hou hiervoor je mailbox in de gaten. Heb je nog extra vragen, twijfel zeker niet om contact met ons op te nemen.</p>
+                    <img src="images/mechelen.png" alt="mechelen stadsbestuur">
                     <address>
                         Stadsbestuur Mechelen<br>
                         Huis van de Mechelaar<br>

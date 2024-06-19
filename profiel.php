@@ -190,10 +190,10 @@ if(isset($_SESSION['id'])) {
                     <h2>Documenten uploaden</h2>
                     <p>Met deze documenten kunnen wij bijna automatische aanvragen voor jouw invullen. Je gegevens zijn veilig met ons.</p>
                     <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 80%; background-color: green;"></div>
+                        <div class="progress-bar-fill" style="width: 80%; background-color: #64D49C;"></div>
                         <div class="percentage">80%</div>
                     </div>
-                    <p>Alle nodige documenten uploaden doe je <a href="#">hier.</a></p>
+                    <p>Alle nodige documenten uploaden doe je <a href="uploaddocuments.php">hier.</a></p>
                  
                 </div>
                 <div class="rightTop">

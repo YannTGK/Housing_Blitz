@@ -37,8 +37,8 @@
 
 .chart-container {
     position: relative;
-    width: 200px; /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
+    width: 200px; 
+    height: 200px; 
     margin: 0 auto 20px;
 }
 

@@ -66,7 +66,7 @@ function getProgressBarColor($percentage) {
     } elseif ($percentage <= 60) {
         return '#ff9800'; // Orange
     } else {
-        return '#4caf50'; // Green
+        return '#64D49C'; // Green
     }
 }
 
@@ -171,7 +171,7 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                 <div class="addInfo">
                     <div class="city">
                         <img src="images/mechelen_logo.svg" alt="logo van je stad">
-                        <p>Wonen in Mechelen. ALle communicatie en info vanuit je stad vind je <a href="#">hier</a>.</p>
+                        <p>Wonen in Mechelen. Alle communicatie en info vanuit je stad vind je <a href="#">hier</a>.</p>
                     </div>
                     <div class="profielVoltooid">
                         <p>Voltooi je profiel <a href="#">hier</a> om beter geholpen te worden.</p>

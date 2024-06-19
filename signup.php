@@ -134,9 +134,16 @@ if (!empty($_POST)){
                     <div class="btn">
                         <input type="submit" value="Sign Up" class="formButton">
                     </div>
+              
+                <div class="btnitsme">
+                <button class="formButton">Sign-up with itsme</button>
                 </div>
+         </div>
             </form>
+
         
+        
+
             <div class="signupinfo">
                 <p>Heb je al een account?</p>
                 <a href="login.php">login</a>

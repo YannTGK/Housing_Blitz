@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-h1, h2, h3, p, strong, a, label, input {
+h1, h2, h3, p, strong, a, label, input, button {
     margin: 0;
     font-family: "montserrat", sans-serif;
 }
@@ -142,3 +142,30 @@ body {
     height: 60px;
     width: 300px;
 }
+
+
+.btnitsme .formButton {
+    background-color: black;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btnitsme .formButton:hover {
+    background-color: #333;
+}
+
+.btnitsme {
+    width: 100%;
+}
+
+.btnitsme .formButton {
+    width: 100%;
+    height: 60px;
+}
+
+

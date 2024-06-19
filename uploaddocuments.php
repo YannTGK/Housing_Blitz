@@ -19,7 +19,7 @@ if(isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Housing Blitz - Instellingen</title>
+    <title>Housing Blitz - Upload Documents</title>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/upload.css">
@@ -49,13 +49,13 @@ if(isset($_GET['logout'])) {
     <section class="upload-documents">
                 <h2>Documenten uploaden</h2>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 70%;"></div>
+                    <div class="progress" style="width: 15%;"></div>
                     <span>70%</span>
                 </div>
                 <p>Met deze documenten kunnen wij bijna automatische aanvragen voor jouw invullen. Je gegevens zijn veilig met ons.</p>
                 <p>Alle nodige documenten uploaden doe je hier.</p>
                 <div class="upload-form">
-                    <input type="file" id="document-upload" name="document-upload">
+                    
                     <label for="document-upload" class="upload-label">Bijlage toevoegen</label>
                 </div>
                 <div class="document-list">

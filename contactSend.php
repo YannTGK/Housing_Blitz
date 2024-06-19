@@ -50,7 +50,7 @@ if(isset($_GET['logout'])) {
             <section class="confirmation">
                 <div class="confirmation-message">
                     <h2>We hebben je vraag goed ontvangen</h2>
-                    <div class="checkmark">✔️</div>
+                    <img src="images/check.svg" alt="">
                 </div>
                 <div class="confirmation-info">
                     <h3>Hou je mailbox in de gaten</h3>

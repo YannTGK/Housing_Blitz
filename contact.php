@@ -46,7 +46,7 @@ if(isset($_GET['logout'])) {
         </h3>
     </div>
 
-    <section class="contact">
+    <section class="content">
                 <div class="contact-info">
                     <h2>Contacteer een maatschappelijke werker</h2>
                     <p>Heb je hulp nodig om je aanvraag tot een sociale woning tot een succes te brengen? Twijfel dan zeker niet om contact op te nemen met een maatschappelijke werker. Zij helpen je een hogere slaagkans te behalen voor een sociale woning.</p>

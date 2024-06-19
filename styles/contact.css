@@ -2,7 +2,9 @@
     background-color: #B2FFA8;
 }
 
-
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 .content {
     display: flex;
     gap: 32px;
@@ -16,16 +18,23 @@
 .contact-info {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    padding: 20px;
+    padding: 40px;
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info h2, .contact-info h3 {
-    margin-top: 0;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.contact-info h3 {
+    margin-top: 30px;
 }
 
 .contact-info .small {
+    margin-top:3px;
+    margin-bottom: 30px;
     font-size: 0.9em;
     color: #555;
 }
@@ -68,7 +77,6 @@
 }
 
 button {
-    background-color: #28a745;
     color: white;
     border: none;
     padding: 10px;
@@ -76,6 +84,9 @@ button {
     border-radius: 4px;
 }
 
-button:hover {
-    background-color: #218838;
+
+
+img {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

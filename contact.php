@@ -55,9 +55,10 @@ if(isset($_GET['logout'])) {
                     <h3>Je lokale maatschappelijke zetel</h3>
                     <p>Je woont in stad Mechelen. Heb je specifieke vragen voor je stad, kan je rechtstreeks met hun contact nemen.</p>
                     
-                    <hr>
+                 
                     <address>
-                        <strong>MECHELEN</strong><br>
+                        <img src="images/mechelen.png" alt="mechelen stadsbestuur">
+                     <br>
                         Stadsbestuur Mechelen<br>
                         Huis van de Mechelaar<br>
                         Reuzenstraat 1, 2800 Mechelen<br>

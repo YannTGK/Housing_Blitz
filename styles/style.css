@@ -127,7 +127,7 @@ span {
 }
 
 .btn .formButton {
-    background-color: #86E7B8;
+    background-color: #64D49C;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -137,13 +137,13 @@ span {
 }
 
 .btn .formButton:hover {
-    background-color: #64D49C;
+    background-color: #86E7B8;
 }
 
 .button {
     display: inline-block;
     padding: 8px 22px;
-    background-color: #86E7B8;
+    background-color: #64D49C;
     color: white;
     text-align: center;
     border-radius: 5px;
@@ -152,14 +152,14 @@ span {
 }
 
 .button:hover {
-    background-color: #64D49C;
+    background-color: #86E7B8;
 }
 
 .button2 {
     display: block;
     width: 100%;
     padding: 16px 24px;
-    background-color: #86E7B8;
+    background-color: #64D49C;
     color: white;
     text-align: center;
     border-radius: 5px;
@@ -168,5 +168,5 @@ span {
 }
 
 .button2:hover {
-    background-color: #64D49C;
+    background-color: #86E7B8;
 }

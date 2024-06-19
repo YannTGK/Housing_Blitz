@@ -50,9 +50,7 @@ if(isset($_GET['logout'])) {
             <section class="redirect-info">
                 <h2>Je wordt herleid naar de officiële website van derde</h2>
                 <div class="logos">
-                    <img src="path_to_vlaanderen_logo" alt="Vlaanderen Logo">
-                    <img src="path_to_digitaal_vlaanderen_logo" alt="Digitaal Vlaanderen Logo">
-                    <img src="path_to_vlaamse_overheid_logo" alt="Vlaamse Overheid Logo">
+                    <img src="images/image6.png" alt="Vlaanderen Logo">
                 </div>
                 <div class="success-message">
                     <h3>Veel succes</h3>

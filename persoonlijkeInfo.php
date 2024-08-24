@@ -118,6 +118,8 @@ if(isset($_SESSION['id'])) {
         echo "Error: " . $conn->error;
         exit;
     }
+
+    
 } else {
     echo "Gebruiker ID niet gevonden in sessie.";
     exit;

@@ -15,18 +15,19 @@
 }
 
 .kansHolder {
-    text-align: center;
+  
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+ 
     gap: 24px;
     width: 600px;
     height: 350px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
 
 .kans {
     display: flex;
@@ -35,52 +36,7 @@
     gap: 40px;
 }
 
-.chart-container {
-    position: relative;
-    width: 200px; 
-    height: 200px; 
-    margin: 0 auto 20px;
-}
 
-.circle {
-    border-radius: 50%;
-    position: absolute;
-    margin-top: 16px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.circle-small {
-    width: 95px;
-    height: 95px;
-}
-
-.circle-medium {
-    width: 130px;
-    height: 130px;
-}
-
-.circle-large {
-    width: 170px;
-    height: 170px;
-}
-
-.circle-xlarge {
-    width: 225px;
-    height: 225px;
-}
-
-.circle::after {
-    content: '';
-    width: 80%;
-    height: 80%;
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 10%;
-    left: 10%;
-}
 
 .legend {
     display: flex;
@@ -111,7 +67,7 @@
     justify-content: space-around;
     font-family: "montserrat", sans-serif;
 }
-.title {
+.title2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -255,3 +211,81 @@ article img {
     width: 150px;
     height: 80px;
 }
+
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 250px; /* Aangepast om ruimte te geven voor de labels */
+    margin: 20px 0;
+    gap: 10px; /* Ruimte tussen de staven */
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Zorg ervoor dat de balken naar beneden worden uitgelijnd */
+    height: 100%; /* Zorg ervoor dat de container de volledige hoogte benut */
+}
+
+.bar {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative; /* Dit zorgt ervoor dat het kind-element (percentage-label) absoluut gepositioneerd kan worden */
+}
+
+.bar span {
+    position: absolute; /* Hiermee zorg je ervoor dat de tekst bovenop de staaf wordt geplaatst */
+    bottom: 5px; /* Of pas dit aan om de positie binnen de staaf aan te passen */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: black; /* Zorg ervoor dat de kleur goed contrasteert met de achtergrond van de staaf */
+}
+
+.bar-container, .bar {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.label {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.label a {
+    text-decoration: none;
+    color: #000; /* Pas de kleur van de link aan zoals gewenst */
+}
+
+.label a:hover {
+    text-decoration: underline; /* Optioneel: onderstreep de link bij hover */
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(90deg, #00C9FF, #92FE9D);
+    border-radius: 24px;
+    width: 100%;
+    height: 100px;
+    
+}
+
+.titleText {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+

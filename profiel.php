@@ -58,17 +58,7 @@ if(isset($_SESSION['id'])) {
 
         <div class="content">
             <div class="left under">
-                <div class="title">
-                    <img src="images/profiel_human.svg" alt="human tekening">
-                    <p class="titleText"> 
-                        Welkom terug, 
-                        <?php if(isset($_SESSION['firstname'])){
-                            echo $_SESSION['firstname'];
-                        } else {
-                            echo "firstname niet gevonden in sessie.";
-                        } ?>
-                    </p>
-                </div>
+                
                 <div class="woonWens">
                     <h2>Woon wensen</h2>
                     <img src="images/profiel_zetel.svg" alt="">
@@ -104,7 +94,7 @@ if(isset($_SESSION['id'])) {
                             <p>Geen</p>
                         </div>
                     </div>
-                    <a href="woonwensen.php" class="button2">Voorkeur aanpassen</a>
+                    <a href="woonwensen.php" class="button2">Bewerken</a>
                 </div>
             </div>
             <div class="middle under">
@@ -181,28 +171,11 @@ if(isset($_SESSION['id'])) {
                         </div>
 
                     </div>
-                    <a href="woonsituatie.php" class="button2">Pas aan</a>
+                    <a href="woonsituatie.php" class="button2">Bewerken</a>
                 </div>
             </div>
-            <div class="right under">
-                <div class="rightTop">
-                    
-                    <h2>Documenten uploaden</h2>
-                    <p>Met deze documenten kunnen wij bijna automatische aanvragen voor jouw invullen. Je gegevens zijn veilig met ons.</p>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 80%; background-color: #64D49C;"></div>
-                        <div class="percentage">80%</div>
-                    </div>
-                    <p>Alle nodige documenten uploaden doe je <a href="uploaddocuments.php">hier.</a></p>
-                 
-                </div>
-                <div class="rightTop">
-                    <img src="images/check.svg" alt="check icon big">
-                    <p>Je bent verbonden met de Itsme app. De meeste gegevens worden automatisch geladen</p>
-                </div>
-            </div>
-        </div>
-    </div>
+           
+            
 
    
 </body>

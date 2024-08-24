@@ -55,9 +55,27 @@ if(isset($_SESSION['id'])) {
     $laagste_positie = $premies_subsidies = $particulieren_huurmarkt = $sociaal_verhuurkantoor = $laagste_positie = 0;
 }
 
-// Kansberekening
+// Kansberekening voor Sociale Woning
 $kans_op_sociale_woning = (1 - ($laagste_positie / 400)) * 100;
 $kans_op_sociale_woning = round($kans_op_sociale_woning, 0); // Afronden tot 2 decimalen voor weergave
+
+// Premies/Subsidies Berekening
+$premies_subsidies_kans = ($premies_subsidies / 100) * 80; // Bijv. 80% kans als premies_subsidies > 0
+if ($premies_subsidies_kans > 100) {
+    $premies_subsidies_kans = 100;
+}
+
+// Particuliere Huurmarkt Berekening
+$huurmarkt_kans = ($particulieren_huurmarkt / 100) * 70; // Bijv. 70% kans als particuliere huurmarkt > 0
+if ($huurmarkt_kans > 100) {
+    $huurmarkt_kans = 100;
+}
+
+// Sociaal Verhuurkantoor Berekening
+$sociaal_verhuurkantoor_kans = ($sociaal_verhuurkantoor / 100) * 60; // Bijv. 60% kans als sociaal verhuurkantoor > 0
+if ($sociaal_verhuurkantoor_kans > 100) {
+    $sociaal_verhuurkantoor_kans = 100;
+}
 
 // Function to determine color based on percentage
 function getProgressBarColor($percentage) {
@@ -85,77 +103,48 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
     <?php include_once(__DIR__ . "/classes/nav.php") ?>
 
     <div class="screen">
-        <h3 class="housingLetter">
-            <?php if(isset($_SESSION['firstname'])){
-                echo $_SESSION['firstname'];
+        <div class="title">
+            <img src="images/profiel_human.svg" alt="human tekening">
+            <p class="titleText"> 
+                Welkom terug, 
+                <?php if(isset($_SESSION['firstname'])){
+                    echo $_SESSION['firstname'];
                 } else {
-                echo "firstname niet gevonden in sessie.";
-                } 
-            ?>
-            <?php if(isset($_SESSION['lastname'])){
-                echo $_SESSION['lastname'];
-                } else {
-                echo "lastname niet gevonden in sessie.";
-                } 
-            ?>
-            - Housing Blitz
-        </h3>
-
+                    echo "firstname niet gevonden in sessie.";
+                } ?>
+            </p>
+        </div>
         <div class="content">
             <div class="top">
                 <div class="kansHolder">
-                    <h1>Kans op een woning</h1>
+                    <h1>Kans op een sociale woning</h1>
                     <div class="kans">
                         <div class="chart-container">
                             <?php
-                            
-                            
-                                $progressValues = [$kans_op_sociale_woning, $premies_subsidies,$particulieren_huurmarkt,$sociaal_verhuurkantoor  ];
-                                $classes = ['circle-xlarge', 'circle-large', 'circle-medium', 'circle-small'];
-                                foreach ($progressValues as $index => $progress) {
-                                    $class = $classes[$index];
-                                    echo "<div class='circle $class' data-progress='$progress'></div>";
+                                $progressValues = [
+                                    'Sociale Woning' => ['value' => $kans_op_sociale_woning, 'url' => 'socialewoning.php'], 
+                                    'Premies/Subsidies' => ['value' => $premies_subsidies_kans, 'url' => 'https://www.premiezoeker.be/'], 
+                                    'Particulieren Huurmarkt' => ['value' => $huurmarkt_kans, 'url' => 'https://www.vlaanderen.be/een-huis-of-appartement-kopen'], 
+                                    'Sociaal Verhuurkantoor' => ['value' => $sociaal_verhuurkantoor_kans, 'url' => 'https://www.vlaanderen.be/een-sociale-woning-huren-bij-een-woonmaatschappij']
+                                ];
+                                $colors = ['#B2FFA8', '#A4AA7D', '#86E7B8', '#93ACA0']; // Kleuren array
+                                $index = 0;
+                                foreach ($progressValues as $label => $data) {
+                                    $color = $colors[$index % count($colors)];
+                                    $progress = $data['value'];
+                                    $url = $data['url'];
+                                    echo "<div class='bar-container'>
+                                            <div class='bar' style='height: {$progress}%; background-color: {$color};'><span>{$progress}%</span></div>
+                                            <div class='label'><a href='{$url}'>{$label}</a></div>
+                                          </div>";
+                                    $index++;
                                 }
                             ?>
                         </div>
-                        <ul class="legend">
-                            <li> 
-                                <strong>
-                                    <a href="socialewoning.php">Sociale Woning</a>
-                                </strong>  
-                                <span>
-                                    <?php echo $kans_op_sociale_woning; ?>%
-                                </span>
-                            </li>
-                            <li> 
-                                <strong>
-                                    <a href="https://www.premiezoeker.be/">Premies/Subsidies</a>
-                                </strong>
-                                <span>
-                                    <?php echo $premies_subsidies; ?>%
-                                </span>
-                            </li>
-                            <li> 
-                                <strong>
-                                    <a href="https://www.vlaanderen.be/een-huis-of-appartement-kopen">Particulieren Huurmarkt</a>
-                                </strong>  
-                                <span>
-                                    <?php echo $particulieren_huurmarkt; ?>%
-                                </span>
-                            </li>
-                            <li> 
-                                <strong>
-                                    <a href="https://www.vlaanderen.be/een-sociale-woning-huren-bij-een-woonmaatschappij">Sociaal Verhuurkantoor</a>
-                                </strong>  
-                                <span>
-                                    <?php echo $sociaal_verhuurkantoor; ?>%
-                                </span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div class="card">
-                    <h3 class="title"><?php echo $laagste_positie; ?> ste</h3>
+                    <h3 class="title2"><?php echo $laagste_positie; ?> ste</h3>
                     <p class="body-text">
                         Je staat in de rij in 3 steden voor een sociale woning.
                     </p>
@@ -164,24 +153,15 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
                         <div class="percentage"><?php echo $kans_op_sociale_woning; ?>%</div>
                     </div>
                     <p class="body-text">
-                        In Mechelen sta je op de 31ste plaats wat momenteel je grootste kans is. De verwachte wachttijd is nog 2 jaar.
+                        In Mechelen sta je op de 40ste plaats wat momenteel je grootste kans is. De verwachte wachttijd is nog 2 jaar.
                     </p>
                     <a href="socialewoning.php" class="button">Elke stad zien</a>
                 </div> 
-                <div class="addInfo">
-                    <div class="city">
-                        <img src="images/mechelen_logo.svg" alt="logo van je stad">
-                        <p>Wonen in Mechelen. Alle communicatie en info vanuit je stad vind je <a href="#">hier</a>.</p>
-                    </div>
-                    <div class="profielVoltooid">
-                        <p>Voltooi je profiel <a href="#">hier</a> om beter geholpen te worden.</p>
-                        <div class="progress-bar">
-                            <div class="progress-bar-fill" style="width: <?php echo 40; ?>%; background-color: <?php echo 40; ?>;"></div>
-                            <div class="percentage"><?php echo 40; ?>%</div>
-                        </div>
-                    </div>
-                </div>                 
-            </div>
+            </div>                 
+        </div>
+              
+                       
+         
             <div class="bottom">
                 <div class="faqHolder">
                     <h3>FAQ - vragen</h3>
@@ -231,17 +211,6 @@ $progress_color = getProgressBarColor($kans_op_sociale_woning);
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const circles = document.querySelectorAll('.circle');
-            const colors = ['#B2FFA8', '#A4AA7D', '#86E7B8', '#93ACA0']; // Define your colors here
 
-            circles.forEach((circle, index) => {
-                const progress = circle.getAttribute('data-progress');
-                const color = colors[index % colors.length]; // Use a color from the array
-                circle.style.background = `conic-gradient(${color} 0% ${progress}%, #d3d3d3 ${progress}% 100%)`;
-            });
-        });
-    </script>
 </body>
 </html>

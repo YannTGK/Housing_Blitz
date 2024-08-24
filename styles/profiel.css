@@ -6,11 +6,6 @@ h2 {
     text-align: center;
 }
 
-.content {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
 
 .under {
     display: flex;
@@ -143,3 +138,20 @@ strong {
     align-items: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  
+    margin: 0 auto; /* Om het gecentreerd te houden */
+}
+
+.middle {
+    display: flex;
+    flex-direction: row; /* Van kolom naar rij */
+    gap: 30px;
+    justify-content: space-between;
+  
+}
+

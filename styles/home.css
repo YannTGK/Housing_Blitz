@@ -10,74 +10,51 @@
 
 .top {
     display: flex;
-    flex-direction: row;
     gap: 32px;
 }
 
 .kansHolder {
-  
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
- 
     gap: 24px;
     width: 600px;
     height: 350px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 .kans {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 40px;
 }
 
-
-
-.legend {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-    list-style: none;
-    padding: 0;
-}
-
-.legend li {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-}
-
 .card {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 300px;
+    justify-content: space-around;
+    width: 600px;
     height: 350px;
     padding: 24px;
     border-radius: 15px;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    justify-content: space-around;
-    font-family: "montserrat", sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Montserrat", sans-serif;
 }
+
 .title2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .body-text {
     font-size: 14px;
-    margin-bottom: 20px;
     color: black;
 }
-  
+
 .progress-bar {
     position: relative;
     width: 100%;
@@ -100,74 +77,13 @@
     font-size: 14px;
 }
 
-.addInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 300px;
-    height: 350px;
-}
-
-.addInfo > div {
-    height: 163px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    border-radius: 15px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    justify-content: space-around;
-}
-
-.city img {
-    width: 122px;
-    height: 41px;
-}
-
-.city p, .profielVoltooid {
-    text-align: center;
-}
-
 .bottom {
     display: flex;
-    flex-direction: row;
     gap: 32px;
     width: 1275px;
 }
 
-.faqHolder {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: calc(50% - 12px);
-    height: 350px;
-    padding: 24px;
-    border-radius: 15px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    font-family: "montserrat", sans-serif;
-}
-
-.articles {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    height: 275px;
-    overflow-y: auto;
-}
-
-.articles .header {
-    font-weight: bold;
-}
-
-.articles article {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
+.faqHolder,
 .news {
     display: flex;
     flex-direction: column;
@@ -177,10 +93,11 @@
     padding: 24px;
     border-radius: 15px;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    font-family: "montserrat", sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Montserrat", sans-serif;
 }
 
+.articles,
 .articlesHolder {
     display: flex;
     flex-direction: column;
@@ -189,45 +106,37 @@
     overflow-y: auto;
 }
 
-.articlesHolder article {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-}
-
-.articles2 {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
+.articles .header,
 .articles2 .header {
     font-weight: bold;
 }
 
+.articles article,
+.articlesHolder article {
+    display: flex;
+    gap: 16px;
+}
 
-article img {
+.article img {
     width: 150px;
     height: 80px;
 }
-
 
 .chart-container {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    height: 250px; /* Aangepast om ruimte te geven voor de labels */
+    height: 250px;
     margin: 20px 0;
-    gap: 10px; /* Ruimte tussen de staven */
+    gap: 10px;
 }
 
 .bar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end; /* Zorg ervoor dat de balken naar beneden worden uitgelijnd */
-    height: 100%; /* Zorg ervoor dat de container de volledige hoogte benut */
+    justify-content: flex-end;
+    height: 100%;
 }
 
 .bar {
@@ -236,24 +145,17 @@ article img {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    position: relative; /* Dit zorgt ervoor dat het kind-element (percentage-label) absoluut gepositioneerd kan worden */
+    position: relative;
 }
 
 .bar span {
-    position: absolute; /* Hiermee zorg je ervoor dat de tekst bovenop de staaf wordt geplaatst */
-    bottom: 5px; /* Of pas dit aan om de positie binnen de staaf aan te passen */
+    position: absolute;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 14px;
-    color: black; /* Zorg ervoor dat de kleur goed contrasteert met de achtergrond van de staaf */
+    color: black;
 }
-
-.bar-container, .bar {
-    margin: 0;
-    padding: 0;
-}
-
-
 
 .label {
     text-align: center;
@@ -263,23 +165,21 @@ article img {
 
 .label a {
     text-decoration: none;
-    color: #000; /* Pas de kleur van de link aan zoals gewenst */
+    color: #000;
 }
 
 .label a:hover {
-    text-decoration: underline; /* Optioneel: onderstreep de link bij hover */
+    text-decoration: underline;
 }
 
 .title {
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 15px;
     background: linear-gradient(90deg, #00C9FF, #92FE9D);
     border-radius: 24px;
-    width: 100%;
+    width: 1230px;
     height: 100px;
-    
 }
 
 .titleText {
@@ -287,5 +187,4 @@ article img {
     color: white;
     font-weight: bold;
 }
-
 

@@ -203,7 +203,7 @@ $progress_color = getProgressBarColor($priority_score);
             <div class="contact">
                 <h3>Professional Contacteren</h3>
                 <p>Contacteer een professional in je buurt. Deze kan je helpen je slaagkans te vergroten.</p>
-                <a href="#" class="button">Contacteer nu </a>        
+                <a href="contact.php" class="button">Contacteer nu </a>        
             </div>
         </div>
     </div>
